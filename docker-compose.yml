@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+
+  postgressi:
+    image: sameersbn/postgresql:9.6-2
+    ports:
+    - "5432:5432"
+    environment:
+    - DB_USER=testuser
+    - DB_PASS=passwordi
+    - DB_NAME=testdb
+    volumes:
+    - ./data/postgres:/var/lib/postgresql
